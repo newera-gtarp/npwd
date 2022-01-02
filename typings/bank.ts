@@ -19,14 +19,5 @@ export interface ITransactions {
 }
 
 export enum BankEvents {
-  ADD_TRANSFER = 'npwd:addTransfer',
-  ADD_TRANSFER_SUCCESS = 'npwd:addTransferSuccess',
-  FETCH_TRANSACTIONS = 'npwd:fetchAllTransactions',
-  SEND_TRANSFERS = 'npwd:sendTransfers',
-  TRANSACTION_ALERT = 'npwd:bankTransactionAlert',
-  TRANSACTION_NOTIFICATION = 'npwd:bankTransactionNotification',
-  SEND_CREDENTIALS = 'npwd:sendBankCredentials',
-  GET_CREDENTIALS = 'npwd:getBankCredentials',
-  SEND_ALERT = 'npwd:sendBankAlert',
-  SEND_NOTIFICATION = 'npwd:sendBankNotification',
+  FETCH_BALANCE = 'npwd:fetchBankBalance',
 }

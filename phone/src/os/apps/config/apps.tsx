@@ -19,6 +19,7 @@ import {
   CONTACTS_APP_PRIMARY_COLOR,
   CONTACTS_APP_TEXT_COLOR,
 } from '../../../apps/contacts/contacts.theme';
+import { BANK_APP_TEXT_COLOR, BANK_APP_PRIMARY_COLOR } from '../../../apps/bank/bank.theme';
 import {
   MARKETPLACE_APP_PRIMARY_COLOR,
   MARKETPLACE_APP_ICON_COLOR,
@@ -35,6 +36,7 @@ import { INotificationIcon } from '@os/notifications/providers/NotificationsProv
 import { BrowserApp } from '../../../apps/browser/components/BrowserApp';
 import { MatchApp } from '../../../apps/match/components/MatchApp';
 import TwitterContainer from '../../../apps/twitter/components/TwitterContainer';
+import BankApp from '../../../apps/bank/components/BankApp';
 
 export interface IAppConfig {
   id: string;
@@ -112,15 +114,14 @@ export const APPS: IAppConfig[] = [
       <AppRoute id="SETTINGS" path="/settings" component={SettingsApp} emitOnOpen={false} />
     ),
   },
-  /* Hiding the bank app while the bank resource gets done */
-  /*{
+  {
     id: 'BANK',
     nameLocale: 'APPS_BANK',
-    backgroundColor: blue[900],
-    color: common.white,
+    backgroundColor: BANK_APP_PRIMARY_COLOR,
+    color: BANK_APP_TEXT_COLOR,
     path: '/bank',
-    Route: () => <AppRoute id="BANK" path="/bank" component={BankApp} />,
-  },*/
+    Route: () => <AppRoute id="BANK" path="/bank" component={BankApp} emitOnOpen={false} />,
+  },
   {
     id: 'MATCH',
     nameLocale: 'APPS_MATCH',
