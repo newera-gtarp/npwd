@@ -26,6 +26,12 @@ const MockConversationMessages: Message[] = [
     conversation_id: '4444+5555',
   },
   {
+    id: 1,
+    author: '111-1134',
+    message: 'You can delete me',
+    conversation_id: '4444+5555',
+  },
+  {
     id: 2,
     author: '215-8139',
     message:
