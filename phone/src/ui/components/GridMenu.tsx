@@ -15,9 +15,9 @@ export const GridMenu: React.FC<GridMenuProps> = ({ items, Component = AppIcon, 
     <Grid container alignItems="center" direction="row">
       {items &&
         items.length &&
-        items.map((item) => (
-          <>
-            {!item.isDisabled && (
+        items.map(
+          (item) =>
+            !item.isDisabled && (
               <Grid item xs={xs} key={item.id}>
                 <Box textAlign="center">
                   <Link to={item.path}>
@@ -25,9 +25,8 @@ export const GridMenu: React.FC<GridMenuProps> = ({ items, Component = AppIcon, 
                   </Link>
                 </Box>
               </Grid>
-            )}
-          </>
-        ))}
+            ),
+        )}
     </Grid>
   );
 };
