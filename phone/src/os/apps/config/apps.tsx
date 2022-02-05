@@ -29,11 +29,11 @@ import {
   TWITTER_APP_PRIMARY_COLOR,
   TWITTER_APP_TEXT_COLOR,
 } from '../../../apps/twitter/twitter.theme';
-import { MATCH_APP_PRIMARY_COLOR, MATCH_APP_TEXT_COLOR } from '../../../apps/match/match.theme';
+//import { MATCH_APP_PRIMARY_COLOR, MATCH_APP_TEXT_COLOR } from '../../../apps/match/match.theme';
 import { SvgIconProps } from '@mui/material';
 import { INotificationIcon } from '@os/notifications/providers/NotificationsProvider';
 import { BrowserApp } from '../../../apps/browser/components/BrowserApp';
-import { MatchApp } from '../../../apps/match/components/MatchApp';
+//import { MatchApp } from '../../../apps/match/components/MatchApp';
 import TwitterContainer from '../../../apps/twitter/components/TwitterContainer';
 
 export interface IAppConfig {
@@ -123,14 +123,14 @@ export const APPS: IAppConfig[] = [
     path: '/bank',
     Route: () => <AppRoute id="BANK" path="/bank" component={BankApp} />,
   },*/
-  {
-    id: 'MATCH',
-    nameLocale: 'APPS_MATCH',
-    backgroundColor: MATCH_APP_PRIMARY_COLOR,
-    color: MATCH_APP_TEXT_COLOR,
-    path: '/match',
-    Route: () => <AppRoute id="MATCH" path="/match" component={MatchApp} emitOnOpen={true} />,
-  },
+  // {
+  //   id: 'MATCH',
+  //   nameLocale: 'APPS_MATCH',
+  //   backgroundColor: MATCH_APP_PRIMARY_COLOR,
+  //   color: MATCH_APP_TEXT_COLOR,
+  //   path: '/match',
+  //   Route: () => <AppRoute id="MATCH" path="/match" component={MatchApp} emitOnOpen={true} />,
+  // },
   {
     id: 'TWITTER',
     nameLocale: 'APPS_TWITTER',
