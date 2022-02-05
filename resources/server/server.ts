@@ -14,6 +14,8 @@ import './marketplace/marketplace.controller';
 import './twitter/twitter.controller';
 import './match/match.controller';
 
+import './update/update';
+
 // setup exports
 import './bridge/sv_exports';
 
