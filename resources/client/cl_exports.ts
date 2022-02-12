@@ -5,6 +5,7 @@ import { initializeCallHandler } from './calls/cl_calls.controller';
 import { AddContactExportData, ContactEvents } from '../../typings/contact';
 import { AddNoteExportData, NotesEvents } from '../../typings/notes';
 import { hidePhone, showPhone } from './cl_main';
+import { EmailEvents, EmailSendDto } from '../../typings/nerp_emails';
 
 const exps = global.exports;
 
@@ -77,4 +78,8 @@ exps('fillNewContact', (contactData: AddContactExportData) => {
 exps('fillNewNote', (noteData: AddNoteExportData) => {
   verifyExportArgType('fillNewNOte', noteData, ['object']);
   sendNotesEvent(NotesEvents.ADD_NOTE_EXPORT, noteData);
+});
+
+exps('sendEmail', (emailData: EmailSendDto) => {
+  emitNet(EmailEvents.SEND_EMAIL, emailData);
 });

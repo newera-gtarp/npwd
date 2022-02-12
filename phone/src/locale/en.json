@@ -100,6 +100,7 @@
       "NAVBAR_CONTACTS": "Contacts",
       "NO_HISTORY": "You have no call history"
     },
+    "EMAIL": {},
     "TWITTER": {
       "FEEDBACK": {
         "CREATE_PROFILE_SUCCESS": "Successfully created your profile",
@@ -281,6 +282,7 @@
     "APPS_TWITTER": "Twitter",
     "APPS_MARKETPLACE": "Marketplace",
     "APPS_CAMERA": "Camera",
+    "APPS_EMAIL": "Email",
     "APPS_MATCH": "Matchmaker",
     "APPS_CALCULATOR_COPIED": "Result was copied to clipboard!",
     "GENERIC_CLICK_TO_REVEAL": "Click to reveal",

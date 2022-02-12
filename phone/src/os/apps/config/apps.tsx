@@ -9,6 +9,7 @@ import { ExampleAppWrapper } from '../../../apps/example/components/ExampleAppWr
 import { MarketplaceApp } from '../../../apps/marketplace/components/MarketplaceApp';
 import { NotesApp } from '../../../apps/notes/NotesApp';
 import CameraApp from '../../../apps/camera/components/CameraApp';
+import { EmailApp } from '../../../apps/nerp-email/components/EmailApp';
 import { AppRoute } from '../components/AppRoute';
 
 import {
@@ -30,6 +31,10 @@ import {
   TWITTER_APP_TEXT_COLOR,
 } from '../../../apps/twitter/twitter.theme';
 //import { MATCH_APP_PRIMARY_COLOR, MATCH_APP_TEXT_COLOR } from '../../../apps/match/match.theme';
+import {
+  EMAIL_APP_DEFAULT_PRIMARY_COLOR,
+  EMAIL_APP_DEFAULT_TEXT_COLOR,
+} from '../../../apps/nerp-email/email.theme';
 import { SvgIconProps } from '@mui/material';
 import { INotificationIcon } from '@os/notifications/providers/NotificationsProvider';
 import { BrowserApp } from '../../../apps/browser/components/BrowserApp';
@@ -171,6 +176,14 @@ export const APPS: IAppConfig[] = [
     color: common.white,
     path: '/camera',
     Route: () => <AppRoute id="CAMERA" path="/camera" component={CameraApp} emitOnOpen={true} />,
+  },
+  {
+    id: 'EMAIL',
+    nameLocale: 'APPS_EMAIL',
+    backgroundColor: EMAIL_APP_DEFAULT_PRIMARY_COLOR,
+    color: EMAIL_APP_DEFAULT_TEXT_COLOR,
+    path: '/email',
+    Route: () => <AppRoute id="EMAIL" path="/email" component={EmailApp} emitOnOpen={false} />,
   },
 ];
 

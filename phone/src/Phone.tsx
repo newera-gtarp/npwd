@@ -11,6 +11,7 @@ import { useApps } from '@os/apps/hooks/useApps';
 import { useTwitterService } from './apps/twitter/hooks/useTwitterService';
 import { useMarketplaceService } from './apps/marketplace/hooks/useMarketplaceService';
 import { useBankService } from './apps/bank/hooks/useBankService';
+import { useEmailService } from './apps/nerp-email/hooks/useEmailService';
 import { useMessagesService } from './apps/messages/hooks/useMessageService';
 import { useSettings } from './apps/settings/hooks/useSettings';
 import { useCallService } from '@os/call/hooks/useCallService';
@@ -50,6 +51,7 @@ function Phone() {
   useSimcardService();
   useTwitterService();
   useMarketplaceService();
+  useEmailService();
   useBankService();
   useMessagesService();
   useContactsListener();

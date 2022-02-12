@@ -41,3 +41,7 @@ export function sendMatchEvent(method: string, data: any = {}): void {
 export function sendPhoneEvent(method: string, data: any = {}): void {
   return sendMessage(apps.PHONE, method, data);
 }
+
+export function sendEmailEvent(method: string, data: any = {}): void {
+  return sendMessage(apps.EMAIL, method, data);
+}

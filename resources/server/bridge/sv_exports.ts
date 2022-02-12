@@ -4,7 +4,9 @@ import { config } from '../server';
 import { PlayerAddData } from '../players/player.interfaces';
 import { playerLogger } from '../players/player.utils';
 import PlayerService from '../players/player.service';
+import EmailService from '../nerp-email/email.service';
 import { PhoneEvents } from '../../../typings/phone';
+import { EmailSendDto } from '../../../typings/nerp_emails';
 
 const exp = global.exports;
 
@@ -39,3 +41,7 @@ if (config.general.useResourceIntegration) {
     await PlayerService.handleUnloadPlayerEvent(src);
   });
 }
+
+exp('sendEmail', async (emailData: EmailSendDto) => {
+  await EmailService.handleSendEmail(emailData);
+});

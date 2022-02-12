@@ -71,7 +71,7 @@ export const AppIcon: React.FC<AppIconProps> = ({
         <Badge
           color="error"
           badgeContent={notification?.badge}
-          invisible={!notification || notification.badge < 2}
+          invisible={!notification || notification.badge < 1}
         >
           {Icon ? (
             <Icon className={classes.icon} fontSize="large" />
