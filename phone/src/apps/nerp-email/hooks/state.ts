@@ -2,7 +2,7 @@ import { atom, selector, useRecoilState, useRecoilValue, useSetRecoilState } fro
 import { Email, EmailEvents } from '@typings/nerp_emails';
 import fetchNui from '@utils/fetchNui';
 import { ServerPromiseResp } from '@typings/common';
-import { buildRespObj } from '@utils/misc';
+import { buildRespObj, isEnvBrowser } from '@utils/misc';
 import { BrowserEmailState } from '../utils/constants';
 
 export const emailState = atom<Email[]>({
@@ -13,11 +13,12 @@ export const emailState = atom<Email[]>({
       try {
         const resp = await fetchNui<ServerPromiseResp<Email[]>>(
           EmailEvents.FETCH_EMAILS,
-          undefined,
+          null,
           buildRespObj(BrowserEmailState),
         );
         return resp.data;
       } catch (e) {
+        if (isEnvBrowser()) return BrowserEmailState;
         console.error(e);
         return [];
       }
