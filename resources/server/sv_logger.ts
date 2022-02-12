@@ -21,10 +21,10 @@ export const mainLogger = createLogger({
   level: config.debug.level ?? 'info',
   silent: !config.debug.enabled ?? false,
   transports: [
-    new transports.File({
-      filename: findLogPath(),
-      format: format.combine(format.errors({ stack: true }), format.timestamp(), format.json()),
-    }),
+    // new transports.File({
+    //   filename: findLogPath(),
+    //   format: format.combine(format.errors({ stack: true }), format.timestamp(), format.json()),
+    // }),
     new transports.Console({
       format: format.combine(
         format.label({ label: '[NPWD]' }),

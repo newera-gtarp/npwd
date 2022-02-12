@@ -12,15 +12,16 @@ export class _EmailDb {
   ): Promise<number> {
     const query = `
         INSERT INTO player_mails 
-            (citizenid, sender, subject, message, button) 
+            (citizenid, sender, subject, message, date, button) 
         VALUES 
-            (?, ?, ?, ?, ?)
+            (?, ?, ?, ?, ?, ?)
     `;
     const [result] = await DbInterface._rawExec(query, [
       citizenId,
       sender,
       subject,
       message,
+      new Date(),
       button ? JSON.stringify(button) : null,
     ]);
 
@@ -30,10 +31,10 @@ export class _EmailDb {
   }
 
   async fetchEmails(citizenId: string): Promise<Email[]> {
-    console.log('Getting mail for ' + citizenId);
     const query =
       'SELECT * FROM player_mails WHERE citizenid = ? AND deleted = 0 ORDER BY date DESC';
-    const emails = await DbInterface.fetch<Email[]>(query, [citizenId]);
+    const [results] = await DbInterface._rawExec(query, [citizenId]);
+    const emails = results as Email[];
     return emails.map((e) => ({
       ...e,
       button: e.button ? JSON.parse(e.button as any) : null,
@@ -42,12 +43,12 @@ export class _EmailDb {
 
   async deleteEmail(emailId: number, citizenId: string): Promise<void> {
     const query = 'UPDATE player_mails SET deleted = 1 WHERE id = ? AND citizenid = ?';
-    await DbInterface.exec(query, [emailId, citizenId]);
+    await DbInterface._rawExec(query, [emailId, citizenId]);
   }
 
   async markEmailAsRead(emailId: number, citizenId: string): Promise<void> {
     const query = 'UPDATE player_mails SET read = 1 WHERE id = ? AND citizenid = ?';
-    await DbInterface.exec(query, [emailId, citizenId]);
+    await DbInterface._rawExec(query, [emailId, citizenId]);
   }
 }
 

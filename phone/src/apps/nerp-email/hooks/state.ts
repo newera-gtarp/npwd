@@ -16,7 +16,8 @@ export const emailState = atom<Email[]>({
           null,
           buildRespObj(BrowserEmailState),
         );
-        return resp.data;
+        console.log('EMAILS: ', resp.data);
+        return resp.data ?? [];
       } catch (e) {
         if (isEnvBrowser()) return BrowserEmailState;
         console.error(e);
