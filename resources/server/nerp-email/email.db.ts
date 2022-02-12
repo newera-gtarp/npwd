@@ -1,8 +1,3 @@
-import {
-  MarketplaceDeleteDTO,
-  MarketplaceListing,
-  MarketplaceListingBase,
-} from '../../../typings/marketplace';
 import { ResultSetHeader } from 'mysql2';
 import DbInterface from '../db/db_wrapper';
 import { Email } from '../../../typings/nerp_emails';
@@ -35,8 +30,9 @@ export class _EmailDb {
   }
 
   async fetchEmails(citizenId: string): Promise<Email[]> {
+    console.log('Getting mail for ' + citizenId);
     const query =
-      'SELECT * FROM player_mails WHERE citizenid = ? AND deleted = 0 ORDER BY date DESC;';
+      'SELECT * FROM player_mails WHERE citizenid = ? AND deleted = 0 ORDER BY date DESC';
     const emails = await DbInterface.fetch<Email[]>(query, [citizenId]);
     return emails.map((e) => ({
       ...e,

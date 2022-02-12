@@ -13,15 +13,15 @@ const theme: ThemeOptions = {
       contrastText: EMAIL_APP_DEFAULT_TEXT_COLOR,
     },
     text: {
-      primary: grey[900],
-      secondary: grey[700],
-      disabled: grey[600],
+      primary: grey[50],
+      secondary: grey[400],
+      disabled: grey[500],
     },
     divider: '#99d5cf',
-    background: {
-      default: grey[100],
-      paper: grey[50],
-    },
+    // background: {
+    //   default: grey[100],
+    //   paper: grey[50],
+    // },
   },
 };
 

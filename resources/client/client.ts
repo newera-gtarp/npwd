@@ -12,6 +12,7 @@ import './calls/cl_calls.controller';
 import './cl_match';
 import './functions';
 import './cl_exports';
+import './cl_nerp_email';
 import './settings/cl_settings';
 
 export const ClUtils = new ClientUtils();
