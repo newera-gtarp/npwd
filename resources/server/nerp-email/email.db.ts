@@ -37,17 +37,18 @@ export class _EmailDb {
     const emails = results as Email[];
     return emails.map((e) => ({
       ...e,
+      date: new Date(e.date).toISOString() as any,
       button: e.button ? JSON.parse(e.button as any) : null,
     }));
   }
 
   async deleteEmail(emailId: number, citizenId: string): Promise<void> {
-    const query = 'UPDATE player_mails SET deleted = 1 WHERE id = ? AND citizenid = ?';
+    const query = 'UPDATE player_mails SET `deleted` = 1 WHERE id = ? AND citizenid = ?';
     await DbInterface._rawExec(query, [emailId, citizenId]);
   }
 
   async markEmailAsRead(emailId: number, citizenId: string): Promise<void> {
-    const query = 'UPDATE player_mails SET read = 1 WHERE id = ? AND citizenid = ?';
+    const query = 'UPDATE player_mails SET `read` = 1 WHERE id = ? AND citizenid = ?';
     await DbInterface._rawExec(query, [emailId, citizenId]);
   }
 }

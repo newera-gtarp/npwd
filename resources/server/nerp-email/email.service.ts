@@ -45,7 +45,10 @@ class _EmailService {
 
       const player = PlayerService.getPlayerFromIdentifier(emailData.citizenId);
       if (player != null) {
-        emitNet(EmailEvents.SEND_EMAIL, player.source, email);
+        emitNet(EmailEvents.SEND_EMAIL, player.source, {
+          ...email,
+          date: email.date.toISOString(),
+        });
       }
     } catch (e) {
       emailLogger.error(`Failed to send email ${e.message}`, {
