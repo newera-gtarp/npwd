@@ -13,7 +13,6 @@ export const useEmailNotifications = () => {
   const history = useHistory();
 
   const setNotification = (email: Email) => {
-    console.log('ADDING EMAIL NOTI');
     const id = `${NOTIFICATION_ID}:${email.id}`;
 
     const notification: INotification = {

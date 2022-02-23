@@ -45,7 +45,7 @@ export const newPhoneProp = async () => {
     ); //-- Attaches the phone to the player.
     propCreated = true;
   } else if (propCreated) {
-    console.log('prop already created');
+    //console.log('prop already created');
   }
 };
 

@@ -53,7 +53,7 @@ export const useCall = (): CallHook => {
           return;
         }
 
-        console.log('call resp', resp);
+        //console.log('call resp', resp);
 
         // if ok, we save the call to the dialer history
         saveLocalCall({

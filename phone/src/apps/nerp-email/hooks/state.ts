@@ -16,7 +16,6 @@ export const emailState = atom<Email[]>({
           null,
           buildRespObj(BrowserEmailState),
         );
-        console.log('EMAILS: ', resp.data);
         return (
           resp.data?.map((e) => ({
             ...e,

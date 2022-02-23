@@ -1,10 +1,10 @@
 const args = process.argv.slice(2);
 
-console.log(args);
+//console.log(args);
 
 const path = './src/locale/';
 
-const langs = ['bs', 'no', 'es', 'fr', 'pt', 'ptbr', 'sv', 'tr', "hu", 'ru'];
+const langs = ['bs', 'no', 'es', 'fr', 'pt', 'ptbr', 'sv', 'tr', 'hu', 'ru'];
 
 const defaultLang = 'en';
 
@@ -73,5 +73,5 @@ const LoadDefault = () =>
       }
     }
   }
-  console.log(missingKeys);
+  //console.log(missingKeys);
 })();
