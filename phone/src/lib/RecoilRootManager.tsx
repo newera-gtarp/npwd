@@ -14,6 +14,9 @@ export const RecoilRootManager: React.FC = ({ children }) => {
 
   useNuiEvent('PHONE', PhoneEvents.UNLOAD_CHARACTER, () => {
     setCharState((charState) => charState + 1);
+    // ebiggz: quick hack to fix character change issues
+    // eslint-disable-next-line no-restricted-globals
+    location.reload();
   });
 
   return <RecoilRoot key={charState}>{children}</RecoilRoot>;
