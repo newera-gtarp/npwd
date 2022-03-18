@@ -69,16 +69,16 @@ export const APPS: IAppConfig[] = [
     path: '/phone',
     Route: () => <AppRoute id="DIALER" path="/phone" component={DialerApp} emitOnOpen={false} />,
   },
-  {
-    id: 'BROWSER',
-    nameLocale: 'BROWSER.NAME',
-    backgroundColor: blue['300'],
-    path: '/browser',
-    color: common.white,
-    Route: () => (
-      <AppRoute id="BROWSER" path="/browser" component={BrowserApp} emitOnOpen={false} />
-    ),
-  },
+  // {
+  //   id: 'BROWSER',
+  //   nameLocale: 'BROWSER.NAME',
+  //   backgroundColor: blue['300'],
+  //   path: '/browser',
+  //   color: common.white,
+  //   Route: () => (
+  //     <AppRoute id="BROWSER" path="/browser" component={BrowserApp} emitOnOpen={false} />
+  //   ),
+  // },
   {
     id: 'MESSAGES',
     nameLocale: 'APPS_MESSAGES',
@@ -88,6 +88,14 @@ export const APPS: IAppConfig[] = [
     Route: () => (
       <AppRoute id="MESSAGES" path="/messages" component={MessagesApp} emitOnOpen={false} />
     ),
+  },
+  {
+    id: 'EMAIL',
+    nameLocale: 'APPS_EMAIL',
+    backgroundColor: EMAIL_APP_DEFAULT_PRIMARY_COLOR,
+    color: EMAIL_APP_DEFAULT_TEXT_COLOR,
+    path: '/email',
+    Route: () => <AppRoute id="EMAIL" path="/email" component={EmailApp} emitOnOpen={false} />,
   },
   {
     id: 'CONTACTS',
@@ -176,14 +184,6 @@ export const APPS: IAppConfig[] = [
     color: common.white,
     path: '/camera',
     Route: () => <AppRoute id="CAMERA" path="/camera" component={CameraApp} emitOnOpen={true} />,
-  },
-  {
-    id: 'EMAIL',
-    nameLocale: 'APPS_EMAIL',
-    backgroundColor: EMAIL_APP_DEFAULT_PRIMARY_COLOR,
-    color: EMAIL_APP_DEFAULT_TEXT_COLOR,
-    path: '/email',
-    Route: () => <AppRoute id="EMAIL" path="/email" component={EmailApp} emitOnOpen={false} />,
   },
 ];
 
