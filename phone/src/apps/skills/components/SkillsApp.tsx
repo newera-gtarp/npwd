@@ -10,7 +10,7 @@ export const SkillsApp: React.FC = () => {
     <Box height="100%" width="100%" p={2} style={{ textAlign: 'center' }}>
       <h1>App coming soon!</h1>
       <p style={{ fontSize: '1.3vw' }}>
-        For now, you can choose your skill with the <b>/setskill</b> command.
+        For now, you can choose your skill with the <b>/skills</b> command.
       </p>
     </Box>
   );
