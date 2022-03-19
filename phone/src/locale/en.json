@@ -282,6 +282,7 @@
     "APPS_TWITTER": "Twitter",
     "APPS_MARKETPLACE": "Marketplace",
     "APPS_CAMERA": "Camera",
+    "APPS_SKILLS": "Skills",
     "APPS_EMAIL": "Email",
     "APPS_MATCH": "Matchmaker",
     "APPS_CALCULATOR_COPIED": "Result was copied to clipboard!",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { blue, common, grey, purple } from '@mui/material/colors';
+import { blue, common, grey, purple, red } from '@mui/material/colors';
 import { DialerApp } from '../../../apps/dialer/components/DialerApp';
 import { ContactsApp } from '../../../apps/contacts/components/ContactsApp';
 import { CalculatorApp } from '../../../apps/calculator/components/CalculatorApp';
@@ -10,6 +10,7 @@ import { MarketplaceApp } from '../../../apps/marketplace/components/Marketplace
 import { NotesApp } from '../../../apps/notes/NotesApp';
 import CameraApp from '../../../apps/camera/components/CameraApp';
 import { EmailApp } from '../../../apps/nerp-email/components/EmailApp';
+import { SkillsAppWrapper } from '../../../apps/skills/components/SkillsAppWrapper';
 import { AppRoute } from '../components/AppRoute';
 
 import {
@@ -37,7 +38,7 @@ import {
 } from '../../../apps/nerp-email/email.theme';
 import { SvgIconProps } from '@mui/material';
 import { INotificationIcon } from '@os/notifications/providers/NotificationsProvider';
-import { BrowserApp } from '../../../apps/browser/components/BrowserApp';
+//import { BrowserApp } from '../../../apps/browser/components/BrowserApp';
 //import { MatchApp } from '../../../apps/match/components/MatchApp';
 import TwitterContainer from '../../../apps/twitter/components/TwitterContainer';
 
@@ -184,6 +185,16 @@ export const APPS: IAppConfig[] = [
     color: common.white,
     path: '/camera',
     Route: () => <AppRoute id="CAMERA" path="/camera" component={CameraApp} emitOnOpen={true} />,
+  },
+  {
+    id: 'SKILLS',
+    nameLocale: 'APPS_SKILLS',
+    backgroundColor: red[800],
+    color: common.white,
+    path: '/skills',
+    Route: () => (
+      <AppRoute id="SKILLS" path="/skills" component={SkillsAppWrapper} emitOnOpen={true} />
+    ),
   },
 ];
 
