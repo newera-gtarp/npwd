@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import './Phone.css';
 import { Route } from 'react-router-dom';
 import { CallModal } from '@os/call/components/CallModal';
@@ -16,6 +16,7 @@ import { useMessagesService } from './apps/messages/hooks/useMessageService';
 import { useSettings } from './apps/settings/hooks/useSettings';
 import { useCallService } from '@os/call/hooks/useCallService';
 import { useDialService } from './apps/dialer/hooks/useDialService';
+import { useMatchService } from './apps/match/hooks/useMatchService';
 import InjectDebugData from './os/debug/InjectDebugData';
 import { NotificationAlert } from '@os/notifications/components/NotificationAlert';
 import { useCallModal } from '@os/call/hooks/useCallModal';
@@ -31,12 +32,11 @@ import { useContactsListener } from './apps/contacts/hooks/useContactsListener';
 import { useNoteListener } from './apps/notes/hooks/useNoteListener';
 import { PhoneSnackbar } from '@os/snackbar/components/PhoneSnackbar';
 import { useInvalidSettingsHandler } from './apps/settings/hooks/useInvalidSettingsHandler';
+import { useKeyboardService } from '@os/keyboard/hooks/useKeyboardService';
 
 function Phone() {
   const { i18n } = useTranslation();
-
   const { apps } = useApps();
-
   const [settings] = useSettings();
 
   // Set language from local storage
@@ -46,10 +46,11 @@ function Phone() {
   }, [i18n, settings.language]);
 
   useConfig();
-
+  useKeyboardService();
   usePhoneService();
   useSimcardService();
   useTwitterService();
+  useMatchService();
   useMarketplaceService();
   useEmailService();
   useBankService();
@@ -73,7 +74,7 @@ function Phone() {
               <Route exact path="/" component={HomeApp} />
               {callModal && <Route exact path="/call" component={CallModal} />}
               {apps.map((App) => (
-                <>{!App.isDisabled && <App.Route key={App.id} />}</>
+                <Fragment key={App.id}>{!App.isDisabled && <App.Route key={App.id} />}</Fragment>
               ))}
             </>
             <NotificationAlert />

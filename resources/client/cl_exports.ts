@@ -76,7 +76,7 @@ exps('fillNewContact', (contactData: AddContactExportData) => {
 //   content?: string;
 // }
 exps('fillNewNote', (noteData: AddNoteExportData) => {
-  verifyExportArgType('fillNewNOte', noteData, ['object']);
+  verifyExportArgType('fillNewNote', noteData, ['object']);
   sendNotesEvent(NotesEvents.ADD_NOTE_EXPORT, noteData);
 });
 
