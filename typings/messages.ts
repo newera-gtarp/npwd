@@ -154,4 +154,6 @@ export enum MessageEvents {
   CREATE_MESSAGE_BROADCAST = 'npwd:createMessagesBroadcast',
   SET_MESSAGE_READ = 'npwd:setReadMessages',
   DELETE_CONVERSATION = 'nwpd:deleteConversation',
+  GET_CURRENT_LOCATION = 'nwpd:getCurrentLocation',
+  SET_GPS = 'nwpd:setGpsWaypoint',
 }
