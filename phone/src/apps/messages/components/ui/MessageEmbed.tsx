@@ -79,13 +79,11 @@ const LocationEmbed = ({ isMine, embed }: { isMine: boolean; embed: LocationEmbe
         <Typography>{embed?.street}</Typography>
         <Typography>{embed?.zone}</Typography>
       </Box>
-      {!isMine && (
-        <Box>
-          <Button fullWidth variant="contained" color="primary" onClick={handleUpdateGps}>
-            Set GPS
-          </Button>
-        </Box>
-      )}
+      <Box>
+        <Button fullWidth variant="contained" color="primary" onClick={handleUpdateGps}>
+          Set GPS
+        </Button>
+      </Box>
     </StyledMessage>
   );
 };
