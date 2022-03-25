@@ -85,7 +85,6 @@ const MessageContextMenu: React.FC<MessageCtxMenuProps> = ({
       search,
       t,
       onClose,
-      fetchNui,
       sendEmbedMessage,
       activeMessageConversation,
       messageGroup,
