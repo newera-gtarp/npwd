@@ -1,9 +1,5 @@
-import React, { useState } from 'react';
-import { Box, Button, IconButton, Typography } from '@mui/material';
-import { Stop, PlayArrow } from '@mui/icons-material';
-import { useExampleStringValue } from '../hooks/state';
-import useSound from '@os/sound/hooks/useSound';
-import { useApp } from '@os/apps/hooks/useApps';
+import React from 'react';
+import { Box } from '@mui/material';
 
 export const SkillsApp: React.FC = () => {
   return (
