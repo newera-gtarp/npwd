@@ -13,6 +13,6 @@ import './cl_match';
 import './functions';
 import './cl_exports';
 import './cl_nerp_email';
-import './settings/cl_settings';
+import './settings/client-settings';
 
 export const ClUtils = new ClientUtils();
