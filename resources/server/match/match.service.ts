@@ -83,10 +83,13 @@ class _MatchService {
     }
   }
 
-  async handleGetMatches(reqObj: PromiseRequest<void>, resp: PromiseEventResp<FormattedMatch[]>) {
+  async handleGetMatches(
+    reqObj: PromiseRequest<{ page: number }>,
+    resp: PromiseEventResp<FormattedMatch[]>,
+  ) {
     const identifier = PlayerService.getIdentifier(reqObj.source);
     try {
-      const matchedProfiles = await this.matchDB.findAllMatches(identifier);
+      const matchedProfiles = await this.matchDB.findAllMatches(identifier, reqObj.data.page);
       const formattedMatches = matchedProfiles.map(formatMatches);
       resp({ status: 'ok', data: formattedMatches });
     } catch (e) {

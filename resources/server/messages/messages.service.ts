@@ -14,6 +14,7 @@ import {
   MessagesRequest,
   PreDBConversation,
   PreDBMessage,
+  Location,
 } from '../../../typings/messages';
 import PlayerService from '../players/player.service';
 import { emitNetTyped } from '../utils/miscUtils';
@@ -128,7 +129,10 @@ class _MessagesService {
     try {
       const messages = await MessagesDB.getMessages(reqObj.data);
 
-      resp({ status: 'ok', data: messages });
+      // its just 20 elements, won't do that much harm
+      const sortedMessages = messages.sort((a, b) => a.id - b.id);
+
+      resp({ status: 'ok', data: sortedMessages });
     } catch (err) {
       resp({ status: 'error', errorMsg: err.message });
     }
@@ -229,7 +233,7 @@ class _MessagesService {
               });
             }
           } catch (err) {
-            messagesLogger.error(`Failed to broadcast message, Error: ${err.message}`);
+            messagesLogger.warn(`Failed to broadcast message. Player is not online.`);
           }
         }
       }
@@ -328,6 +332,19 @@ class _MessagesService {
     } catch (err) {
       console.log(`Failed to emit message. Error: ${err.message}`);
     }
+  }
+
+  async handleGetLocation(reqObj: PromiseRequest, resp: PromiseEventResp<Location>) {
+    const phoneNumber = PlayerService.getPlayer(reqObj.source).getPhoneNumber();
+    const playerPed = GetPlayerPed(reqObj.source.toString());
+
+    resp({
+      status: 'ok',
+      data: {
+        phoneNumber,
+        coords: GetEntityCoords(playerPed),
+      },
+    });
   }
 }
 

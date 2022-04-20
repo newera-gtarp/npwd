@@ -1,12 +1,14 @@
 import React from 'react';
-import { Avatar, Box, Button, Typography } from '@mui/material';
+import { Avatar, Box, Button, Typography, IconButton, Tooltip } from '@mui/material';
 import { Contact } from '@typings/contact';
+import { Location } from '@typings/messages';
 import { useTranslation } from 'react-i18next';
 import { useHistory, useLocation } from 'react-router-dom';
 import StyledMessage from './StyledMessage';
 import { useContactActions } from '../../../contacts/hooks/useContactActions';
+import fetchNui from '../../../../utils/fetchNui';
+import TravelExplore from '@mui/icons-material/TravelExplore';
 import { MessageEvents } from '@typings/messages';
-import fetchNui from '@utils/fetchNui';
 
 interface MessageEmbedProps {
   type: string;
@@ -68,21 +70,26 @@ const ContactEmbed = ({ isMine, embed }: { isMine: boolean; embed: Contact }) =>
   );
 };
 
-const LocationEmbed = ({ isMine, embed }: { isMine: boolean; embed: LocationEmbedData }) => {
-  const handleUpdateGps = () => {
-    fetchNui(MessageEvents.SET_GPS, embed.coords, {}).catch();
+const LocationEmbed = ({ embed }: { embed: Location; isMine: boolean }) => {
+  const [t] = useTranslation();
+
+  const handleSetWaypoint = () => {
+    fetchNui(MessageEvents.MESSAGES_SET_WAYPOINT, {
+      coords: embed.coords,
+    });
   };
 
   return (
     <StyledMessage>
       <Box>
-        <Typography>{embed?.street}</Typography>
-        <Typography>{embed?.zone}</Typography>
+        <Typography>{t('MESSAGES.LOCATION_MESSAGE')}</Typography>
       </Box>
       <Box>
-        <Button fullWidth variant="contained" color="primary" onClick={handleUpdateGps}>
-          Set GPS
-        </Button>
+        <Tooltip title={t('MESSAGES.LOCATION_TOOLTIP')}>
+          <IconButton color="primary" onClick={handleSetWaypoint}>
+            <TravelExplore />
+          </IconButton>
+        </Tooltip>
       </Box>
     </StyledMessage>
   );

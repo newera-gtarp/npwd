@@ -51,7 +51,7 @@ onNetPromise<{ conversationId: string; page: number }, Message[]>(
 onNetPromise<PreDBMessage, Message>(MessageEvents.SEND_MESSAGE, async (reqObj, resp) => {
   MessagesService.handleSendMessage(reqObj, resp)
     .then(async () => {
-      // A simple solution to listen for messages. Will expand upon this soonTM.
+      // A simple solution to listen for messages. Will expand upon this soonTM. No, I won't.
       const funcRef = OnMessageExportMap.get(reqObj.data.tgtPhoneNumber);
       if (funcRef) {
         try {
@@ -97,4 +97,11 @@ onNetPromise<number, void>(MessageEvents.SET_MESSAGE_READ, async (reqObj, resp) 
   MessagesService.handleSetMessageRead(reqObj, resp).catch((e) =>
     messagesLogger.error(`Error occurred in set message read event (${src}), Error: ${e.message}`),
   );
+});
+
+onNetPromise(MessageEvents.GET_MESSAGE_LOCATION, async (reqObj, resp) => {
+  const src = getSource();
+  MessagesService.handleGetLocation(reqObj, resp).catch((e) => {
+    messagesLogger.error(`Error occurred in get location event (${src}), Error: ${e.message}`);
+  });
 });
