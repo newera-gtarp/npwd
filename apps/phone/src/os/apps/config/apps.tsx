@@ -72,16 +72,16 @@ export const APPS: IAppConfig[] = [
     path: '/phone',
     Route: () => <AppRoute id="DIALER" path="/phone" component={DialerApp} emitOnOpen={false} />,
   },
-  {
-    id: 'BROWSER',
-    nameLocale: 'BROWSER.NAME',
-    backgroundColor: blue['300'],
-    path: '/browser',
-    color: common.white,
-    Route: () => (
-      <AppRoute id="BROWSER" path="/browser" component={BrowserApp} emitOnOpen={false} />
-    ),
-  },
+  // {
+  //   id: 'BROWSER',
+  //   nameLocale: 'BROWSER.NAME',
+  //   backgroundColor: blue['300'],
+  //   path: '/browser',
+  //   color: common.white,
+  //   Route: () => (
+  //     <AppRoute id="BROWSER" path="/browser" component={BrowserApp} emitOnOpen={false} />
+  //   ),
+  // },
   {
     id: 'MESSAGES',
     nameLocale: 'APPS_MESSAGES',
@@ -132,14 +132,14 @@ export const APPS: IAppConfig[] = [
       <AppRoute id="SETTINGS" path="/settings" component={SettingsApp} emitOnOpen={false} />
     ),
   },
-  {
-    id: 'MATCH',
-    nameLocale: 'APPS_MATCH',
-    backgroundColor: MATCH_APP_PRIMARY_COLOR,
-    color: MATCH_APP_TEXT_COLOR,
-    path: '/match',
-    Route: () => <AppRoute id="MATCH" path="/match" component={MatchApp} emitOnOpen={false} />,
-  },
+  // {
+  //   id: 'MATCH',
+  //   nameLocale: 'APPS_MATCH',
+  //   backgroundColor: MATCH_APP_PRIMARY_COLOR,
+  //   color: MATCH_APP_TEXT_COLOR,
+  //   path: '/match',
+  //   Route: () => <AppRoute id="MATCH" path="/match" component={MatchApp} emitOnOpen={false} />,
+  // },
   {
     id: 'TWITTER',
     nameLocale: 'APPS_TWITTER',
